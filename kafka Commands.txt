@@ -1,0 +1,15 @@
+#to start the zookeeper
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+#to start the kafka server
+bin\windows\kafka-server-start.bat config\server.properties
+
+#to create new topic in kafka :
+bin\windows\kafka-topics.bat --create --topic user-topic --bootstrap
+-server localhost:9092
+
+#to start the producer
+bin\windows\kafka-console-producer.bat --topic user-topic --bootstrap-server localhost:9092
+
+#to start the consumer
+bin\windows\kafka-console-consumer.bat --topic user-topic --from-beginning --bootstrap-server localhost:9092
